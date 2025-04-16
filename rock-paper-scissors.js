@@ -8,8 +8,8 @@ function getComputerChoice() {
 // Get human's input
 function getHumanChoice() {
     // Default pick
-    const picked = 'paper';
-    // const picked = prompt('Choose: rock, paper, or scissors');
+    //const picked = 'paper';
+    const picked = prompt('Choose: rock, paper, or scissors');
     return picked;
 }
 
@@ -27,10 +27,10 @@ function playGame() {
             console.log('You win! Paper beats Rock');
             humanScore++;
         } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-            console.log('You lose! Scissor beats Paper');
+            console.log('You lose! Scissors beats Paper');
             computerScore++;
         } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-            console.log('You win! Scissor beats Paper');
+            console.log('You win! Scissors beats Paper');
             humanScore++;
         } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
             console.log('You win! Rock beats Scissors');
@@ -40,14 +40,26 @@ function playGame() {
         }
     }
 
+    // Play 5 round
     for (let i = 0; i < 5; i++) {
-        playRound(humanSelection, computerSelection);
+        playRound(getHumanChoice(), getComputerChoice());
     }
+
+    // Determine the winner
+    let stats;
+
+    if (humanScore > computerScore) {
+        stats = 'win';
+    } else if (humanScore < computerScore) {
+        stats = 'lose';
+    } else {
+        stats = 'score tied'
+    };
+
+    let result = `Your score is: ${humanScore},\nComputer's score is: ${computerScore}\nYou ${stats}!`
+    console.log(result)
+    
 }
 
-// Declaring function to the variable
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-// Tests
-console.log(playGame())
+// Tests | Call
+playGame()
