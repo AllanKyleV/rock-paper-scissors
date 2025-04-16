@@ -8,8 +8,8 @@ function getComputerChoice() {
 // Get human's input
 function getHumanChoice() {
     // Default pick
-    //const picked = 'paper';
-    const picked = prompt('Choose: rock, paper, or scissors');
+    // const picked = 'Paper'.toLowerCase();
+    const picked = prompt('Choose: rock, paper, or scissors').toLowerCase();
     return picked;
 }
 
