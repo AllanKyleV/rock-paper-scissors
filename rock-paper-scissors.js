@@ -1,53 +1,58 @@
+// Get computer's input
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const selectedChoice = choices[Math.floor(Math.random() * choices.length)];
     return selectedChoice;
 }
 
+// Get human's input
 function getHumanChoice() {
-    let picked = prompt('Choose:');
+    // Default pick
+    const picked = 'paper';
+    // const picked = prompt('Choose: rock, paper, or scissors');
     return picked;
 }
 
-function playRound(humanChoice, computerChoice, callback) {
-    let scores = {
-        humanScore: 0,
-        computerScore: 0,
-        tied: 0,
-    };
+// Scores
+let humanScore = 0;
+let computerScore = 0;
 
+// Play a round
+function playRound(humanChoice, computerChoice) {
     if (humanChoice === 'rock' && computerChoice === 'paper') {
-        scores.computerScore++;
+        console.log('You lose! Paper beats Rock');
+        computerScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        scores.humanScore++;
+        console.log('You win! Paper beats Rock');
+        humanScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        scores.computerScore++;
+        console.log('You lose! Scissor beats Paper');
+        computerScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        scores.humanScore++;
+        console.log('You win! Scissor beats Paper');
+        humanScore++;
     } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        scores.humanScore++;
+        console.log('You win! Rock beats Scissors');
+        humanScore++;
     } else if (humanChoice === computerChoice) {
-        scores.tied++;
+        console.log('Draw!');
     }
-
-    console.log(`Human picked: ${humanChoice}`)
-    console.log(`Computer Picked: ${computerChoice}`)
-
-    callback(scores)
 }
 
-function roundResult(scores) {
-    // const result = scores;
-    if (scores.humanScore > scores.computerScore) {
-        console.log('Human Wins!')
-    } else if ((scores.humanScore < scores.computerScore) ) {
-        console.log('Computer Wins!')
-    } else {
-        console.log('Draw!')
-    }
+// Play 5 Rounds
+/*  Calls playRound() to play 5 rounds
+    Updates scores and declare a winner.
+*/
+
+function playGame() {
     
 }
 
+// Declaring function to the variable
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection, roundResult);
+
+// Tests
+playRound(humanSelection, computerSelection);
+console.log(humanScore);
+console.log(computerScore);
