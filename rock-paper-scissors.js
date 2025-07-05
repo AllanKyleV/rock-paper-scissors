@@ -40,10 +40,37 @@ function playGame() {
         }
     }
 
+    // Play round
+    const rockBtn = document.querySelector('#rock-btn');
+    const paperBtn = document.querySelector('#paper-btn');
+    const scissorsBtn = document.querySelector('#scissors-btn');
+
+    // Add event listeners to the buttons
+    rockBtn.addEventListener('click', () => {
+
+    });
+
+    paperBtn.addEventListener('click', () => {
+
+    });
+
+    scissorsBtn.addEventListener('click', () => {
+
+    });
+
+    
+
+//     button.addEventListener('click', () => {
+//   console.log('Clicked!');
+// });
+
+
+
+
     // Play 5 round
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(getHumanChoice(), getComputerChoice());
+    // }
 
     // Determine the winner
     let stats;
